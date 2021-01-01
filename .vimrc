@@ -62,7 +62,7 @@ set cursorline
 
 " Visual autocomplete for command menu (eg. :e ~/path/to/file)
 set wildmenu
-
+:set wildignorecase
 " redraw only when we need to (don't redraw when execuring a macro)
 set lazyredraw
 
@@ -129,7 +129,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
  
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsExpandTrigger="<S-TAB>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plugin 'https://github.com/junegunn/fzf.vim'
@@ -170,6 +170,7 @@ map <Leader>s :source ~/.vimrc<CR>
 
 nnoremap U <C-R>
 nnoremap <Leader>u ~
+nnoremap <Leader>gu g~
 map <C-c> "+y
 map <C-v> "+gP
 map <Leader>p "+p

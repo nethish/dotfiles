@@ -12,7 +12,6 @@ set noswapfile
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
-
 set clipboard=unnamed
 " Always show cursor
 set ruler
@@ -32,7 +31,6 @@ set backspace=indent,eol,start
 
 " Convert tabs to spaces
 set expandtab
-
 " Turn on line numbers
 set relativenumber
 
@@ -82,7 +80,7 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'https://tpope.io/vim/commentary.git'
+" Plugin 'https://tpope.io/vim/commentary.git'
 Plugin 'https://github.com/kana/vim-textobj-user'
 Plugin 'https://github.com/kana/vim-textobj-entire'
 Plugin 'https://github.com/tpope/vim-unimpaired'
@@ -92,6 +90,11 @@ Plugin 'morhetz/gruvbox'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 Plugin 'https://github.com/tpope/vim-fugitive'
 Plugin 'https://github.com/junegunn/fzf.vim'
+Plugin 'https://github.com/kana/vim-textobj-indent'
+Plugin 'https://github.com/christoomey/vim-sort-motion'
+Plugin 'https://github.com/kana/vim-textobj-line'
+Plugin 'https://github.com/vim-syntastic/syntastic'
+Plugin 'https://github.com/tomtom/tcomment_vim'
 
 call vundle#end()            " required
 
@@ -104,7 +107,6 @@ filetype plugin on
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
 " see :h vundle for more details or wiki for FAQ
 
 filetype detect
@@ -113,7 +115,7 @@ set guifont=Inconsolata\ Bold\ 14
 
 " Show existing tab with 4 spaces
 set tabstop=2
-
+set colorcolumn=80
 " When indenting with >, use 4 spaces
 set shiftwidth=2
 
@@ -181,8 +183,8 @@ map <Leader>h ^
 map <Leader>l $
 nnoremap <Leader>+ <C-A>
 nnoremap <Leader>- <C-X>
-nnoremap <Leader>j 5j
-nnoremap <Leader>k 5k
+nnoremap <Leader>j 10j
+nnoremap <Leader>k 10k
 nnoremap <Leader>gv :e ~/.vimrc<CR>
 
 nnoremap ' `
@@ -208,7 +210,7 @@ nnoremap <silent> <C-Left> <c-w><
 nnoremap <silent> <C-Up> <c-w>+
 nnoremap <silent> <C-Down> <c-w>-
 map <Leader>t :NERDTreeToggle<CR>
-map <C-_> gcc
+" map <C-_> gcc
 
 autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -std=c++14 % -o %:r &> output && ./%:r < input > output<CR><CR>
 

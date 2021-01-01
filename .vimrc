@@ -82,17 +82,19 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'https://tpope.io/vim/commentary.git'
 Plugin 'https://github.com/kana/vim-textobj-user'
-Plugin 'https://github.com/kana/vim-textobj-entire'
+" Plugin 'https://github.com/kana/vim-textobj-entire'
 Plugin 'https://github.com/tpope/vim-unimpaired'
 Plugin 'https://github.com/tpope/vim-surround'
 Plugin 'https://github.com/tpope/vim-obsession'
 Plugin 'morhetz/gruvbox'
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
+" Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'https://github.com/SirVer/ultisnips'
 Plugin 'https://github.com/junegunn/fzf.vim'
+Plugin 'https://github.com/junegunn/fzf'
 Plugin 'https://github.com/kana/vim-textobj-indent'
 Plugin 'https://github.com/christoomey/vim-sort-motion'
-Plugin 'https://github.com/kana/vim-textobj-line'
+" Plugin 'https://github.com/kana/vim-textobj-line'
 Plugin 'https://github.com/vim-syntastic/syntastic'
 Plugin 'https://github.com/tomtom/tcomment_vim'
 
@@ -139,7 +141,7 @@ set autoread
 
 " CUSTOM MAPPINGS
 set hidden
-set undofile
+" set undofile
 
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -167,8 +169,9 @@ set splitright
 set splitbelow
 nmap <Leader>v :vsplit 
 nmap <Leader>V :split 
-nmap <Leader>c :close<CR>
-
+nmap <Leader>q :close<CR>
+map <Leader>c <C-_><C-_>
+map // /<C-R>/
 nnoremap <Leader>w :w<CR>
 nnoremap :: :bp\|bd #<CR>
 
@@ -176,17 +179,23 @@ nmap <Leader>d :bd
 nnoremap <Leader>r *``cgn
 nnoremap <Leader>R :%s/<C-R><C-W>/
 nnoremap <Leader>= gg=G``
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>m :CtrlPMRU<CR>
+" FZF FTW
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>' :Marks<CR>
+
 nnoremap <Tab> <C-^>
-map <Leader>h ^
-map <Leader>l $
+map H ^
+map L $
 nnoremap <Leader>+ <C-A>
 nnoremap <Leader>- <C-X>
-nnoremap <Leader>j 10j
-nnoremap <Leader>k 10k
+noremap J 10j
+noremap K 10k
 nnoremap <Leader>gv :e ~/.vimrc<CR>
 
+map <Leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 nnoremap ' `
 nmap Y :%y+<CR>
 " nnoremap <Leader>af <C-x><C-f>
@@ -197,7 +206,6 @@ nmap Y :%y+<CR>
 " nnoremap <A-k> <C-p>
 
 " Control Keys
-nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 colorscheme gruvbox
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
@@ -209,7 +217,6 @@ nnoremap <silent> <C-Right> <c-w>>
 nnoremap <silent> <C-Left> <c-w><
 nnoremap <silent> <C-Up> <c-w>+
 nnoremap <silent> <C-Down> <c-w>-
-map <Leader>t :NERDTreeToggle<CR>
 " map <C-_> gcc
 
 autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -std=c++14 % -o %:r &> output && ./%:r < input > output<CR><CR>

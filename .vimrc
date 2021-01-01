@@ -10,6 +10,10 @@ set t_Co=256
 " No swap file
 set noswapfile
 
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
+
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 set clipboard=unnamed
@@ -65,52 +69,6 @@ set lazyredraw
 " Highlight a matching [{()}] when cursor is placed on start/end character
 set showmatch
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'preservim/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'https://tpope.io/vim/commentary.git'
-Plugin 'https://github.com/kana/vim-textobj-user'
-" Plugin 'https://github.com/kana/vim-textobj-entire'
-Plugin 'https://github.com/tpope/vim-unimpaired'
-Plugin 'https://github.com/tpope/vim-surround'
-Plugin 'https://github.com/tpope/vim-obsession'
-Plugin 'morhetz/gruvbox'
-" Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
-Plugin 'https://github.com/tpope/vim-fugitive'
-Plugin 'https://github.com/SirVer/ultisnips'
-Plugin 'https://github.com/junegunn/fzf.vim'
-Plugin 'https://github.com/junegunn/fzf'
-Plugin 'https://github.com/kana/vim-textobj-indent'
-Plugin 'https://github.com/christoomey/vim-sort-motion'
-" Plugin 'https://github.com/kana/vim-textobj-line'
-Plugin 'https://github.com/vim-syntastic/syntastic'
-Plugin 'https://github.com/tomtom/tcomment_vim'
-
-call vundle#end()            " required
-
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-" see :h vundle for more details or wiki for FAQ
-
 filetype detect
 set guifont=Inconsolata\ Bold\ 14
 :syntax on
@@ -136,6 +94,61 @@ set autoindent
 set autowrite
 " Autoload files that have changed outside of vim
 set autoread
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Plugin 'ycm-core/YouCompleteMe'
+Plugin 'preservim/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'https://tpope.io/vim/commentary.git'
+Plugin 'https://github.com/kana/vim-textobj-user'
+" Plugin 'https://github.com/kana/vim-textobj-entire'
+Plugin 'https://github.com/tpope/vim-unimpaired'
+Plugin 'https://github.com/tpope/vim-surround'
+Plugin 'https://github.com/tpope/vim-obsession'
+Plugin 'morhetz/gruvbox'
+" Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
+Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+ 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+ 
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+Plugin 'https://github.com/junegunn/fzf.vim'
+Plugin 'https://github.com/junegunn/fzf'
+Plugin 'https://github.com/kana/vim-textobj-indent'
+Plugin 'https://github.com/christoomey/vim-sort-motion'
+" Plugin 'https://github.com/kana/vim-textobj-line'
+Plugin 'https://github.com/vim-syntastic/syntastic'
+Plugin 'https://github.com/tomtom/tcomment_vim'
+
+call vundle#end()            " required
+
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" see :h vundle for more details or wiki for FAQ
 
 " set undodir=/tmp//
 
@@ -174,6 +187,7 @@ map <Leader>c <C-_><C-_>
 map // /<C-R>/
 nnoremap <Leader>w :w<CR>
 nnoremap :: :bp\|bd #<CR>
+map <Leader>/ :Rg<CR>
 
 nmap <Leader>d :bd
 nnoremap <Leader>r *``cgn

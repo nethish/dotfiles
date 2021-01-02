@@ -13,6 +13,26 @@ set noswapfile
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
+autocmd FileType python setlocal expandtab shiftwidth=2 sts=2
+
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+endfunction
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
@@ -102,7 +122,7 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
 
-let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -138,6 +158,14 @@ Plugin 'https://github.com/kana/vim-textobj-indent'
 Plugin 'https://github.com/christoomey/vim-sort-motion'
 " Plugin 'https://github.com/kana/vim-textobj-line'
 Plugin 'https://github.com/vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 Plugin 'https://github.com/tomtom/tcomment_vim'
 
 call vundle#end()            " required
@@ -178,12 +206,12 @@ map <Leader>P "+P
 map <Leader>y "+y
  
 " Fugitive
-nmap <Leader>gs :G<CR>
+nmap <Leader>gs :Shell 
 set splitright
 set splitbelow
 nmap <Leader>v :vsplit 
 nmap <Leader>V :split 
-nmap <Leader>q :close<CR>
+nmap <Leader>q <C-W><C-C>
 map <Leader>c <C-_><C-_>
 map // /<C-R>/
 nnoremap <Leader>w :w<CR>
@@ -219,7 +247,7 @@ nmap Y :%y+<CR>
 " Meta Keys
 " nnoremap <A-j> <C-n>
 " nnoremap <A-k> <C-p>
-
+nmap <Leader>gc :source ~/Scripts/mysession.vim<CR>
 " Control Keys
 colorscheme gruvbox
 nnoremap <C-J> <C-W>j
@@ -233,10 +261,10 @@ nnoremap <silent> <C-Left> <c-w><
 nnoremap <silent> <C-Up> <c-w>+
 nnoremap <silent> <C-Down> <c-w>-
 " map <C-_> gcc
+set cmdheight=2
+autocmd filetype cpp silent nnoremap <C-b> :w <bar> !g++ -std=c++14 % -o %:r &> output && ./%:r < input > output<CR><CR>
 
-autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -std=c++14 % -o %:r &> output && ./%:r < input > output<CR><CR>
-
-autocmd filetype python nnoremap <C-b> :w <bar> !python3 % < input > output 2>&1<CR><CR>
+autocmd filetype python silent! nnoremap <C-b> :w <bar> !python3 % < input > output 2>&1<CR><CR>
 
 " autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11  % -o %:r && ./%:r <CR>
 

@@ -1,0 +1,7 @@
+[user]
+	email = nethish259@gmail.com
+	name = nethish
+[core]
+	editor = vim
+[alias]
+	co = checkout

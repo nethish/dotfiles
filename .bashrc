@@ -141,3 +141,4 @@ ex ()
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export EDITOR=/bin/vim
 export VISUAL=vim
+export SHELL=/bin/zsh

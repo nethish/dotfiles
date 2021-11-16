@@ -5,6 +5,7 @@
 ## Install vim plugins
 ## Install youcompleteme
 ## SSH https://gist.github.com/xirixiz/b6b0c6f4917ce17a90e00f9b60566278
+## Change github url - git remote set-url origin git@github.com:nethish/repo.git
 ## Add zsh plugins plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ## Set zsh theme to eastwood
 

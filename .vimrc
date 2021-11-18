@@ -213,10 +213,10 @@ nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 " colorscheme gruvbox
 
 " Splits
-" nnoremap <C-J> <C-W>j
-" nnoremap <C-K> <C-W>k
-" nnoremap <C-L> <C-W>l
-" nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
 
 set cmdheight=1
 map <Leader>sd <C-L><C-L><C-K><C-K>gg"_dGP<C-H><C-H>

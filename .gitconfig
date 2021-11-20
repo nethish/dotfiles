@@ -5,3 +5,20 @@
 	editor = vim
 [alias]
 	co = checkout
+	p = push
+	st = status -sb
+	ll = log --oneline
+	last = log -1 HEAD --stat
+	cm = commit -m
+	rv = remote -v
+	d = diff
+	dv = difftool -t vimdiff -y
+	gl = config --global -l
+	dk = difftool -t kdiff3 -y
+	catt = cat-file -t
+	g = config --global
+	catp = cat-file -p
+	cats = cat-file -s
+	lst = ls-tree
+[diff]
+	tool = tkdiff

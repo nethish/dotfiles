@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# ========================================================================== #
 ### TODO
 ## Set ZSH_THEME to eastwood
 ## Install vim plugins
@@ -9,6 +10,11 @@
 ## Add zsh plugins plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ## Set zsh theme to eastwood
 
+### Makes shell slow if the repo is heavy so ignore status
+## git config --add oh-my-zsh.hide-status 1
+## git config --add oh-my-zsh.hide-dirty 1
+
+# ========================================================================== #
 
 # oh my zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -28,6 +34,7 @@ sudo pacman -S y
 yay -S google-chrome
 yay -S tmux
 yay -S gvim
+# Just sends the stdout to primary/secondary clipboard
 yay -S xclip
 
 

@@ -127,6 +127,7 @@ Plugin 'https://github.com/tpope/vim-unimpaired'
  
 Plugin 'https://github.com/junegunn/fzf.vim'
 Plugin 'https://github.com/junegunn/fzf'
+Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'https://github.com/kana/vim-textobj-indent'
 " Plugin 'https://github.com/christoomey/vim-sort-motion'
 " Plugin 'https://github.com/kana/vim-textobj-line'
@@ -173,6 +174,8 @@ map <Leader>sv :source ~/.vimrc<CR>
 map <Leader>sc :source ~/repos/CP/cpsession.vim<CR>
 
 map <Leader>ev :e ~/.vimrc <CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
 
 " Copy and paste 
 map <Leader>p "+p
@@ -213,6 +216,9 @@ nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 " colorscheme gruvbox
 
 " Splits
+nmap <Leader>j :split<CR>
+nnoremap <Leader>k :vsplit<CR>
+
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l

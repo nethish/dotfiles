@@ -109,6 +109,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'https://github.com/itchyny/lightline.vim'
 " Plugin 'preservim/nerdtree'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
@@ -118,7 +119,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'https://github.com/tpope/vim-unimpaired'
 " Plugin 'https://github.com/tpope/vim-surround'
 " Plugin 'https://github.com/tpope/vim-obsession'
-" Plugin 'morhetz/gruvbox'
+Plugin 'morhetz/gruvbox'
 " Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 " Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'ervandew/supertab'
@@ -147,6 +148,23 @@ call vundle#end()            " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " see :h vundle for more details or wiki for FAQ
+"
+" GIT
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'fileencoding', 'filetype', 'charvaluehex' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ 'component': {
+      \   'lineinfo': "%{line('.') . '/' . line('$')}",
+      \ },
+      \ }
 
 " set undodir=/tmp//
 
@@ -174,6 +192,7 @@ map <Leader>sv :source ~/.vimrc<CR>
 map <Leader>sc :source ~/repos/CP/cpsession.vim<CR>
 
 map <Leader>ev :e ~/.vimrc <CR>
+map <Leader>ee :e %<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 
@@ -213,16 +232,16 @@ nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 " nnoremap <A-j> <C-n>
 " nnoremap <A-k> <C-p>
 " Control Keys
-" colorscheme gruvbox
+colorscheme gruvbox
 
 " Splits
 nmap <Leader>j :split<CR>
 nnoremap <Leader>k :vsplit<CR>
 
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-nnoremap <C-H> <C-W>h
+" nnoremap <C-J> <C-W>j
+" nnoremap <C-K> <C-W>k
+" nnoremap <C-L> <C-W>l
+" nnoremap <C-H> <C-W>h
 
 set cmdheight=1
 map <Leader>sd <C-L><C-L><C-K><C-K>gg"_dGP<C-H><C-H>

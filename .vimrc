@@ -233,6 +233,7 @@ nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 " nnoremap <A-k> <C-p>
 " Control Keys
 colorscheme gruvbox
+set bg=dark
 
 " Splits
 nmap <Leader>j :split<CR>

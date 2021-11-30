@@ -20,5 +20,7 @@
 	catp = cat-file -p
 	cats = cat-file -s
 	lst = ls-tree
+	ds = diff --staged
+	unstage = restore --staged
 [diff]
 	tool = tkdiff

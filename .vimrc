@@ -18,7 +18,7 @@ autocmd FileType python setlocal expandtab shiftwidth=2 sts=2
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 set clipboard=unnamed
-" Always show cursor
+" always show cursor
 set ruler
 
 " Show incomplete commands
@@ -119,7 +119,7 @@ Plugin 'https://github.com/itchyny/lightline.vim'
 Plugin 'https://github.com/tpope/vim-unimpaired'
 " Plugin 'https://github.com/tpope/vim-surround'
 " Plugin 'https://github.com/tpope/vim-obsession'
-Plugin 'morhetz/gruvbox'
+" Plugin 'morhetz/gruvbox'
 " Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 " Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'ervandew/supertab'
@@ -232,7 +232,7 @@ nnoremap <silent> <Leader><Leader> :<c-u>set hlsearch!<bar>set hlsearch?<CR>
 " nnoremap <A-j> <C-n>
 " nnoremap <A-k> <C-p>
 " Control Keys
-colorscheme gruvbox
+" colorscheme gruvbox
 set bg=dark
 
 " Splits

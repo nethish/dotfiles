@@ -55,6 +55,9 @@ cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig ~/.old-dotfiles
 cd ~/repos/dotfiles
 cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig ~/ 
 
+# tmux - prefix + I to install plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 
 
 

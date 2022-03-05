@@ -7,3 +7,4 @@ cp ~/.tmux.conf .
 cp ~/.bashrc .
 cp ~/.zshrc .
 cp ~/.gitconfig .
+cp ~/.localrc .

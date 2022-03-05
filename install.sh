@@ -36,6 +36,8 @@ yay -S tmux
 yay -S gvim
 # Just sends the stdout to primary/secondary clipboard
 yay -S xclip
+yay -S ripgrep
+yay -S fd
 
 
 # Clone repos and plugins

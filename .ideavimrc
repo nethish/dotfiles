@@ -1,0 +1,211 @@
+" Use vim, not vi api
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set :RltvNmbr
+" Switch syntax highlighting on, when the terminal has colors
+set noswapfile
+filetype plugin on
+
+enoremap <SPACE> <Nop>
+let mapleader=" "
+" set clipboard =unnamed
+" set clipboard =ideaput
+nnoremap <Leader>ev :e ~/.ideavimrc<CR>
+map <Leader>sv :source ~/.ideavimrc<CR>
+
+nnoremap <Leader>ir :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <Leader>id :action ToggleDistractionFreeMode<CR>
+nnoremap <Leader>it :action ActivateTerminalToolWindow<CR>
+nnoremap <Leader>im :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <Leader>il :action RecentLocations<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
+nnoremap zc :action CollapseRegion<CR>
+nnoremap ze :action ExpandRegion<CR>
+nnoremap za :action CollapseAllRegions<CR>
+nnoremap zo :action ExpandAllRegions<CR>
+nnoremap gn :action GotoNextError<CR>
+nnoremap gp :action GotoPreviousError<CR>
+nnoremap gs :action GotoSymbol<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap gb :action Back<CR>
+nmap gr <Action>(RenameElement)
+nnoremap gf :action Forward<CR>
+nnoremap <Leader>ff :action GotoFile<CR>
+nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <Leader>fh :action CallHierarchy<CR>
+nnoremap <Leader>fb :action ShowNavBar<CR>
+nnoremap <Leader>fr :action RecentFiles<cr>
+nnoremap <Leader>fp :action FindInPath<cr>
+nnoremap <Leader>sb :action ShowBookmarks<cr>
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [d <Action>(GotoImplementation)
+nmap ]d <Action>(GotoSuperMethod)
+nnoremap <Leader>gb :action Git.Branches<CR>
+
+nnoremap <Leader>bd :action CloseEditor<CR>
+nmap <Leader>new :action NewFile<CR>
+
+nmap <Leader>rr :action Run<CR>
+nmap <Leader>rc :action ChooseRunConfiguration<CR>
+nnoremap <Leader>wh : action HideActiveWindow<CR>
+
+" Plugins
+Plug 'preservim/nerdtree'
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+
+" NERDTree shortcuts
+set NERDTree
+nmap <Leader>nt :NERDTreeToggle<CR>
+" NOt working"
+nmap <Leader>nf :NERDTreeFind<CR>
+
+" ideavim remaps
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+" nmap ; ` - This is used for idea bookmarks
+
+" Opens new terminal
+" nnoremap <leader>ik :action Terminal.OpenInTerminal<CR>
+" Incremental searching (serach as you type)
+set incsearch
+set smarttab
+set shiftround
+" Highlight search matches
+set hlsearch
+" Turn word wrap off
+set nowrap
+
+" Allow backspace to delete end of line, indent and start of line characters
+set backspace=indent,eol,start
+
+" Convert tabs to spaces
+set expandtab
+" Turn on line numbers
+set relativenumber
+
+" UTF encoding
+set encoding=utf-8
+
+" Use sustem clipboard
+" https://stackoverflow.com/questions/8134647/copy-and-paste-in-vim-via-keyboard-between-different-mac-terminals
+" set clipboard =unnamedplus
+
+" Don't show intro
+" set shortmess =I
+
+set nu
+set mouse=a
+set ignorecase
+" Overrides ignorecase if pattern contains upcase
+set smartcase
+" Shift to the next round tab stop.
+set autoindent
+set autowrite
+set autoread
+
+
+" CUSTOM MAPPINGS
+set hidden
+" set undofile
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+" The Leader keys
+nnoremap <Leader>nn :call NumberToggle()<cr>
+
+" Source files and edit rc
+
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
+
+" Copy and paste
+map <Leader>p "+p
+map <Leader>P "+P
+map <Leader>y "+y
+nmap Y :%y <CR>
+
+" Search
+map // /<C-R>/
+
+" Replace
+nnoremap <Leader>r *``cgn
+nnoremap <Leader>R :%s/<C-R><C-W>/
+
+" Format
+nnoremap <Leader>= gg=G``
+
+" Motions
+noremap J 10j
+noremap K 10k
+
+nnoremap <silent> <Leader>no :<c-u>set hlsearch!<bar>set hlsearch?<CR>
+nmap <Leader>j :split<CR>
+nnoremap <Leader>k :vsplit<CR>
+
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+
+" Bookmarks
+nnoremap <Leader>ba :action ToggleBookmarkA<CR>
+nnoremap <Leader>bb :action ToggleBookmarkB<CR>
+nnoremap <Leader>bc :action ToggleBookmarkC<CR>
+nnoremap <Leader>be :action ToggleBookmarkE<CR>
+nnoremap <Leader>bf :action ToggleBookmarkF<CR>
+nnoremap <Leader>bg :action ToggleBookmarkG<CR>
+nnoremap <Leader>bh :action ToggleBookmarkH<CR>
+nnoremap <Leader>bi :action ToggleBookmarkI<CR>
+nnoremap <Leader>bj :action ToggleBookmarkJ<CR>
+nnoremap <Leader>bk :action ToggleBookmarkK<CR>
+nnoremap <Leader>bl :action ToggleBookmarkL<CR>
+nnoremap <Leader>bm :action ToggleBookmarkM<CR>
+nnoremap <Leader>bn :action ToggleBookmarkN<CR>
+nnoremap <Leader>bo :action ToggleBookmarkO<CR>
+nnoremap <Leader>bp :action ToggleBookmarkP<CR>
+nnoremap <Leader>bq :action ToggleBookmarkQ<CR>
+nnoremap <Leader>br :action ToggleBookmarkR<CR>
+nnoremap <Leader>bs :action ToggleBookmarkS<CR>
+nnoremap <Leader>bt :action ToggleBookmarkT<CR>
+nnoremap <Leader>bu :action ToggleBookmarkU<CR>
+nnoremap <Leader>bv :action ToggleBookmarkV<CR>
+nnoremap <Leader>bw :action ToggleBookmarkW<CR>
+nnoremap <Leader>bx :action ToggleBookmarkX<CR>
+nnoremap <Leader>by :action ToggleBookmarkY<CR>
+nnoremap <Leader>bz :action ToggleBookmarkZ<CR>
+
+nnoremap ;a :action GotoBookmarkA<CR>
+nnoremap ;b :action GotoBookmarkB<CR>
+nnoremap ;c :action GotoBookmarkC<CR>
+nnoremap ;e :action GotoBookmarkE<CR>
+nnoremap ;f :action GotoBookmarkF<CR>
+nnoremap ;g :action GotoBookmarkG<CR>
+nnoremap ;h :action GotoBookmarkH<CR>
+nnoremap ;i :action GotoBookmarkI<CR>
+nnoremap ;j :action GotoBookmarkJ<CR>
+nnoremap ;k :action GotoBookmarkK<CR>
+nnoremap ;l :action GotoBookmarkL<CR>
+nnoremap ;m :action GotoBookmarkM<CR>
+nnoremap ;n :action GotoBookmarkN<CR>
+nnoremap ;o :action GotoBookmarkO<CR>
+nnoremap ;p :action GotoBookmarkP<CR>
+nnoremap ;q :action GotoBookmarkQ<CR>
+nnoremap ;r :action GotoBookmarkR<CR>
+nnoremap ;s :action GotoBookmarkS<CR>
+nnoremap ;t :action GotoBookmarkT<CR>
+nnoremap ;u :action GotoBookmarkU<CR>
+nnoremap ;v :action GotoBookmarkV<CR>
+nnoremap ;w :action GotoBookmarkW<CR>
+nnoremap ;x :action GotoBookmarkX<CR>
+nnoremap ;y :action GotoBookmarkY<CR>
+nnoremap ;z :action GotoBookmarkZ<CR>

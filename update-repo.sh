@@ -8,3 +8,4 @@ cp ~/.bashrc .
 cp ~/.zshrc .
 cp ~/.gitconfig .
 cp ~/.localrc .
+cp ~/.ideavimrc .

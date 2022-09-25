@@ -110,6 +110,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'https://github.com/itchyny/lightline.vim'
+Plugin 'udalov/kotlin-vim'
 " Plugin 'preservim/nerdtree'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
@@ -255,6 +256,7 @@ autocmd filetype python silent nnoremap <Leader>t :!cp ~/repos/CP/templates/temp
 autocmd filetype cpp silent nnoremap <C-b> :w <bar> !g++ -std=c++14 % -o %:r &> output && ./%:r < input > output && rm ./%:r<CR><CR>
 
 autocmd filetype python silent! nnoremap <C-b> :w <bar> !python3 % < input > output 2>&1<CR><CR>
+autocmd filetype kotlin silent! nnoremap <C-b> :w <bar> !kotlinc -script % < input > output 2>&1<CR><CR>
 
 " autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11  % -o %:r && ./%:r <CR>
 

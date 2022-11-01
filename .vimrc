@@ -247,6 +247,7 @@ nnoremap <Leader>k :vsplit<CR>
 
 set cmdheight=1
 map <Leader>sd <C-L><C-L><C-K><C-K>gg"_dGP<C-H><C-H>
+map <Leader>sh /start_here<CR>S
 
 " Templates and snippets
 autocmd filetype cpp silent nnoremap <Leader>t :!cp ~/repos/CP/templates/template.cpp % <CR><CR>

@@ -107,8 +107,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'owickstrom/vim-colors-paramount'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'https://github.com/itchyny/lightline.vim'
 Plugin 'udalov/kotlin-vim'
 " Plugin 'preservim/nerdtree'
@@ -122,7 +123,6 @@ Plugin 'https://github.com/tpope/vim-unimpaired'
 " Plugin 'https://github.com/tpope/vim-obsession'
 " Plugin 'morhetz/gruvbox'
 " Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
-" Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'ervandew/supertab'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'SirVer/ultisnips'
@@ -240,10 +240,10 @@ set bg=dark
 nmap <Leader>j :split<CR>
 nnoremap <Leader>k :vsplit<CR>
 
-" nnoremap <C-J> <C-W>j
-" nnoremap <C-K> <C-W>k
-" nnoremap <C-L> <C-W>l
-" nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
 
 set cmdheight=1
 map <Leader>sd <C-L><C-L><C-K><C-K>gg"_dGP<C-H><C-H>

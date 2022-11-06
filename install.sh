@@ -9,6 +9,7 @@
 ## Change github url - git remote set-url origin git@github.com:nethish/repo.git
 ## Add zsh plugins plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ## Set zsh theme to eastwood
+## ZSH plugins - zoxide, (autojump?), fd, sudo, colorize?
 
 ### Makes shell slow if the repo is heavy so ignore status
 ## git config --add oh-my-zsh.hide-status 1
@@ -17,12 +18,29 @@
 # ========================================================================== #
 
 # oh my zsh
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
+
+if [ -f ~/.oh-my-zsh ]
+then
+  echo "Installing omz"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# vim
+if [ -f ~/.vim/bundle/Vundle.vim ]
+then
+  echo "Installing Vundle"
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
 
 # zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+echo "zsh custom: $ZSH_CUSTOM"
+if [ -z $ZSH_CUSTOM ]
+then
+  echo "Instaling zsh auto suggestions and syntax highlighting"
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+fi
 
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -33,7 +51,7 @@ sudo pacman -Syy
 sudo pacman -S y
 yay -S google-chrome
 yay -S tmux
-yay -S gvim
+yay -S vim
 # Just sends the stdout to primary/secondary clipboard
 yay -S xclip
 yay -S ripgrep
@@ -44,9 +62,15 @@ yay -S fd
 cd ~
 mkdir -p repos
 cd repos
-git clone https://github.com/nethish/dotfiles
-git clone https://github.com/nethish/CP
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ -f ~/repos/dotfiles ]
+then
+  git clone https://github.com/nethish/dotfiles
+fi
+
+if [ -f ~/repos/CP ]
+then
+  git clone https://github.com/nethish/CP
+fi
 
 # dotfiles
 # Backup old configs
@@ -61,6 +85,11 @@ cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig ~/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
+# zoxide, a better cd
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
+# Lazygit
+yay -S lazygit
 
 
 # Finally chsh

@@ -20,29 +20,41 @@ nnoremap <Leader>im :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <Leader>il :action RecentLocations<CR>
 nnoremap <s-TAB> :action PreviousTab<CR>
 nnoremap <TAB> :action NextTab<CR>
+
+" Collapse
 nnoremap zc :action CollapseRegion<CR>
 nnoremap ze :action ExpandRegion<CR>
 nnoremap za :action CollapseAllRegions<CR>
 nnoremap zo :action ExpandAllRegions<CR>
+
+" Errors
 nnoremap gn :action GotoNextError<CR>
 nnoremap gp :action GotoPreviousError<CR>
-nnoremap gs :action GotoSymbol<CR>
-nnoremap gd :action GotToDeclaration<CR>
-nnoremap gb :action Back<CR>
-nmap gr <Action>(RenameElement)
-nnoremap gf :action Forward<CR>
+
+" Navigation
 nnoremap <Leader>ff :action GotoFile<CR>
 nnoremap <Leader>fu :action FindUsages<CR>
 nnoremap <Leader>fh :action CallHierarchy<CR>
 nnoremap <Leader>fb :action ShowNavBar<CR>
 nnoremap <Leader>fr :action RecentFiles<cr>
 nnoremap <Leader>fp :action FindInPath<cr>
+nnoremap <Leader>fs :action FileStructurePopup<cr>
+
+nnoremap gs :action GotoSymbol<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap gb :action Back<CR>
+nmap gr <Action>(RenameElement)
+nnoremap gf :action Forward<CR>
 nnoremap <Leader>sb :action ShowBookmarks<cr>
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [d <Action>(GotoImplementation)
 nmap ]d <Action>(GotoSuperMethod)
 nnoremap <Leader>gb :action Git.Branches<CR>
+
+
+" Code formatting
+nnoremap <Leader>coi :OptimizeImports<CR>
 
 nnoremap <Leader>bd :action CloseEditor<CR>
 nmap <Leader>new :action NewFile<CR>

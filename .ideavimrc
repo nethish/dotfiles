@@ -32,33 +32,46 @@ nnoremap gn :action GotoNextError<CR>
 nnoremap gp :action GotoPreviousError<CR>
 
 " Navigation
-nnoremap <Leader>ff :action GotoFile<CR>
+nnoremap <Leader>ff :action SearchEverywhere<CR>
 nnoremap <Leader>fu :action FindUsages<CR>
 nnoremap <Leader>fh :action CallHierarchy<CR>
 nnoremap <Leader>fb :action ShowNavBar<CR>
-nnoremap <Leader>fr :action RecentFiles<cr>
-nnoremap <Leader>fp :action FindInPath<cr>
-nnoremap <Leader>fs :action FileStructurePopup<cr>
+nnoremap <Leader>fr :action RecentFiles<CR>
+nnoremap <Leader>fp :action FindInPath<CR>
+nnoremap <Leader>fs :action FileStructurePopup<CR>
 
 nnoremap gs :action GotoSymbol<CR>
 nnoremap gd :action GotToDeclaration<CR>
 nnoremap gb :action Back<CR>
-nmap gr <Action>(RenameElement)
 nnoremap gf :action Forward<CR>
-nnoremap <Leader>sb :action ShowBookmarks<cr>
+nnoremap <Leader>sb :action ShowBookmarks<CR>
+
+" Git
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [d <Action>(GotoImplementation)
 nmap ]d <Action>(GotoSuperMethod)
-nnoremap <Leader>gb :action Git.Branches<CR>
-
 
 " Code formatting
-nnoremap <Leader>coi :OptimizeImports<CR>
+nnoremap <Leader>ci :action OptimizeImports<CR>
+nnoremap <Leader>cq :action QuickActions<CR>
 
+" Debug
+nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>dv :action ViewBreakpoints<CR>
+
+" Search and replace
+nmap gr <Action>(RenameElement)
+map // /<C-R>/
+nnoremap <Leader>r *``cgn
+nnoremap <Leader>R :%s/<C-R><C-W>/
+
+
+" File
 nnoremap <Leader>bd :action CloseEditor<CR>
 nmap <Leader>new :action NewFile<CR>
 
+" Run config
 nmap <Leader>rr :action Run<CR>
 nmap <Leader>rc :action ChooseRunConfiguration<CR>
 nnoremap <Leader>wh : action HideActiveWindow<CR>
@@ -82,7 +95,7 @@ nmap <C-i> <Action>(Forward)
 
 " Opens new terminal
 " nnoremap <leader>ik :action Terminal.OpenInTerminal<CR>
-" Incremental searching (serach as you type)
+" InCRemental searching (search as you type)
 set incsearch
 set smarttab
 set shiftround
@@ -133,7 +146,7 @@ function! NumberToggle()
 endfunc
 
 " The Leader keys
-nnoremap <Leader>nn :call NumberToggle()<cr>
+nnoremap <Leader>nn :call NumberToggle()<CR>
 
 " Source files and edit rc
 
@@ -146,12 +159,6 @@ map <Leader>P "+P
 map <Leader>y "+y
 nmap Y :%y <CR>
 
-" Search
-map // /<C-R>/
-
-" Replace
-nnoremap <Leader>r *``cgn
-nnoremap <Leader>R :%s/<C-R><C-W>/
 
 " Format
 nnoremap <Leader>= gg=G``

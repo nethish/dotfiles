@@ -9,3 +9,4 @@ cp ~/.zshrc .
 cp ~/.gitconfig .
 cp ~/.localrc .
 cp ~/.ideavimrc .
+cp ~/.config/lazygit/config.yml lazygit_config.yml

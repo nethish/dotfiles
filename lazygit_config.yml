@@ -1,0 +1,10 @@
+customCommands:
+  - key: 'u'
+    command: "git checkout -m -- {{ .SelectedFile.Name }}"
+    context: files
+    description: 'undo merge changes'
+    prompts:
+      - type: 'confirm'
+        title: "Confirm co?"
+        body: 'Bro, are you sure to undo your change?'
+

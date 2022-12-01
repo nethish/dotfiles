@@ -93,6 +93,11 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.localrc
 
+# Aliases
+alias lg=lazygit
+alias cd=z
+
+
 
 # Auto suggestions
 bindkey '^ ' autosuggest-accept

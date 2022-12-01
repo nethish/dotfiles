@@ -218,6 +218,7 @@ nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fl :Lines<CR>
 nnoremap <Leader>fm :Marks<CR>
+nnoremap \ :Rg<CR>
 
 " Motions
 noremap J 10j
@@ -261,3 +262,20 @@ autocmd filetype kotlin silent! nnoremap <C-b> :w <bar> !kotlinc -script % < inp
 
 " autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11  % -o %:r && ./%:r <CR>
 
+
+
+
+" Things to remember
+" 0 gets you to first char of the line but ^ gets you to first non whitespace character
+" Remeber to use f w e b ^ and $ more often
+" Navigate to char - f, t, F, T (Caps for backwards)
+" w - considers special chars as delimiters while W considers only whitespace
+" % matching brackets
+" Jumplist and changelist
+"   ctrl-o - jumpback
+"   ctrl-i - forward
+"   :jumplist
+"
+"   g; - change list back
+"   g, - change list forward
+"   :changelist

@@ -8,3 +8,7 @@ customCommands:
         title: "Confirm co?"
         body: 'Bro, are you sure to undo your change?'
 
+git:
+  paging:
+    colorArg: always
+    pager: diff-so-fancy

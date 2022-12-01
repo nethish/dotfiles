@@ -49,13 +49,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Install tools
 sudo pacman -Syy
 sudo pacman -S y
-yay -S google-chrome
-yay -S tmux
-yay -S vim
-# Just sends the stdout to primary/secondary clipboard
-yay -S xclip
-yay -S ripgrep
-yay -S fd
+yay -S google-chrome tmux vim xclip ripgrep fd git-delta lazygit
 
 
 # Clone repos and plugins
@@ -84,12 +78,8 @@ cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig ~/
 # tmux - prefix + I to install plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-
 # zoxide, a better cd
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
-# Lazygit
-yay -S lazygit
 
 
 # Finally chsh

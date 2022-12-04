@@ -61,6 +61,11 @@ then
   git clone https://github.com/nethish/dotfiles
 fi
 
+if [ -f ~/repos/fun ]
+then
+  git clone https://github.com/nethish/fun
+fi
+
 if [ -f ~/repos/CP ]
 then
   git clone https://github.com/nethish/CP

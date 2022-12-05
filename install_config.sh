@@ -19,14 +19,14 @@
 
 # oh my zsh
 
-if [ -f ~/.oh-my-zsh ]
+if [ ! -d ~/.oh-my-zsh ]
 then
   echo "Installing omz"
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # vim
-if [ -f ~/.vim/bundle/Vundle.vim ]
+if [ ! -d ~/.vim/bundle/Vundle.vim ]
 then
   echo "Installing Vundle"
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -35,7 +35,7 @@ fi
 
 # zsh plugins
 echo "zsh custom: $ZSH_CUSTOM"
-if [ -z $ZSH_CUSTOM ]
+if [ -v ZSH_CUSTOM ]
 then
   echo "Instaling zsh auto suggestions and syntax highlighting"
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -47,8 +47,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Install tools
-sudo pacman -Syy
-sudo pacman -S y
+sudo pacman -Syy -y
+sudo pacman -Sy -y
+sudo pacman -S yay -y
 yay -S google-chrome tmux vim xclip ripgrep fd git-delta lazygit
 
 
@@ -56,17 +57,17 @@ yay -S google-chrome tmux vim xclip ripgrep fd git-delta lazygit
 cd ~
 mkdir -p repos
 cd repos
-if [ -f ~/repos/dotfiles ]
+if [ ! -d ~/repos/dotfiles ]
 then
   git clone https://github.com/nethish/dotfiles
 fi
 
-if [ -f ~/repos/fun ]
+if [ ! -d ~/repos/fun ]
 then
   git clone https://github.com/nethish/fun
 fi
 
-if [ -f ~/repos/CP ]
+if [ ! -d ~/repos/CP ]
 then
   git clone https://github.com/nethish/CP
 fi
@@ -74,7 +75,7 @@ fi
 # dotfiles
 # Backup old configs
 cd ~
-mkdir ~/.old-dotfiles
+mkdir -p ~/.old-dotfiles
 cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig ~/.old-dotfiles
 
 cd ~/repos/dotfiles

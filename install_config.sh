@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # ========================================================================== #
 ### TODO
@@ -32,8 +32,8 @@ then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-
 # zsh plugins
+ZSH_CUSTOM="/home/$USER/.oh-my-zsh/custom"
 echo "zsh custom: $ZSH_CUSTOM"
 if [ -v ZSH_CUSTOM ]
 then
@@ -46,11 +46,18 @@ fi
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# tmux - prefix + I to install plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# zoxide, a better cd
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 # Install tools
 sudo pacman -Syy -y
 sudo pacman -Sy -y
 sudo pacman -S yay -y
-yay -S google-chrome tmux vim xclip ripgrep fd git-delta lazygit
+yay -S tmux vim xclip ripgrep fd git-delta lazygit diff-so-fancy brave-browser
+# If you need google chrome then yay -S google-chrome will install it
 
 
 # Clone repos and plugins
@@ -80,13 +87,6 @@ cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig ~/.old-dotfiles
 
 cd ~/repos/dotfiles
 cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig ~/ 
-
-# tmux - prefix + I to install plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# zoxide, a better cd
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
 
 # Finally chsh
 sudo chsh

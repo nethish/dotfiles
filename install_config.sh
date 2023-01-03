@@ -56,7 +56,8 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | 
 sudo pacman -Syy -y
 sudo pacman -Sy -y
 sudo pacman -S yay -y
-yay -S tmux vim xclip ripgrep fd git-delta lazygit diff-so-fancy brave-browser
+# gvim must be install otherwise clipboard integration will not be there. echo has('clipboard')
+yay -S tmux gvim xclip ripgrep fd git-delta lazygit diff-so-fancy brave-browser
 # If you need google chrome then yay -S google-chrome will install it
 
 

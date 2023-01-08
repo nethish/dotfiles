@@ -55,7 +55,6 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | 
 # Install tools
 sudo pacman -Syy -y
 sudo pacman -S yay -y
-# gvim must be install otherwise clipboard integration will not be there. echo has('clipboard')
 yay -S tmux gvim xclip ripgrep fd git-delta lazygit diff-so-fancy brave-browser make cmake
 # If you need google chrome then yay -S google-chrome will install it
 
@@ -90,3 +89,17 @@ cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig ~/
 
 # Finally chsh
 sudo chsh
+
+
+
+
+
+## Things to check after intallation is complete
+# 1. Make sure console font is inconsolata
+# 2. echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+#     This is for keychron function keys to work. Change it back to 1 if doesn't work.
+# 3. Install the youcompleteme full package. This needs make and cmake to work. 
+#     cd ~/.vim/vundle/YouCompleteMe/
+#     python3 install.py --all
+# 4. Check clipboard copy paste works with vim. 
+#     gvim must be install otherwise clipboard integration will not be there. echo has('clipboard')

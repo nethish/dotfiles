@@ -79,6 +79,14 @@ source ~/.localrc
 # Aliases
 alias lg=lazygit
 alias cd=z
+alias ez=vim ~/.zshrc
+alias eb=vim ~/.bashrc
+alias el=vim ~/.localrc
+alias sz=source ~/.zshrc
+alias sb=source ~/.bashrc
+alias sl=source ~/.localrc
+
+alias -g fk=" | fzf"
 
 # Auto suggestions
 bindkey '^ ' autosuggest-accept

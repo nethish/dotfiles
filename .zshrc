@@ -74,17 +74,19 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 export PATH=/home/$USER/bin:$PATH
 
-source ~/.localrc
+if [[ -f ~/.localrc ]]; then
+  source ~/.localrc
+fi
 
 # Aliases
 alias lg=lazygit
 alias cd=z
-alias ez=vim ~/.zshrc
-alias eb=vim ~/.bashrc
-alias el=vim ~/.localrc
-alias sz=source ~/.zshrc
-alias sb=source ~/.bashrc
-alias sl=source ~/.localrc
+alias _ez="vim ~/.zshrc"
+alias _eb="vim ~/.bashrc"
+alias _el="vim ~/.localrc"
+alias _sz="source ~/.zshrc"
+alias _sb="source ~/.bashrc"
+alias _sl="source ~/.localrc"
 
 alias -g fk=" | fzf"
 

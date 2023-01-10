@@ -55,7 +55,7 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | 
 # Install tools
 sudo pacman -Syy -y
 sudo pacman -S yay -y
-yay -S tmux gvim xclip ripgrep fd git-delta lazygit diff-so-fancy brave-browser make cmake
+yay -S tmux gvim xclip ripgrep fd lazygit diff-so-fancy brave-browser make cmake unzip
 # If you need google chrome then yay -S google-chrome will install it
 
 
@@ -82,10 +82,16 @@ fi
 # Backup old configs
 cd ~
 mkdir -p ~/.old-dotfiles
-cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig ~/.old-dotfiles
+cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig .ideavimrc ~/.old-dotfiles
 
 cd ~/repos/dotfiles
-cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig ~/ 
+cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig .ideavimrc ~/ 
+
+
+cd ~
+# Use apps to download and extract the application tar. Create a symlink in bin dir
+# Use data dir for storing some data. Like postgres data
+mdkir bin data apps
 
 # Finally chsh
 sudo chsh

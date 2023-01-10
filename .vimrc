@@ -115,27 +115,27 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'owickstrom/vim-colors-paramount'
 Plugin 'ycm-core/YouCompleteMe'
-" Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'https://github.com/itchyny/lightline.vim'
-Plugin 'udalov/kotlin-vim'
+Plugin 'https://github.com/tpope/vim-unimpaired'
+Plugin 'https://github.com/junegunn/fzf.vim'
+Plugin 'https://github.com/junegunn/fzf'
+Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'https://github.com/tomtom/tcomment_vim'
+
+" Plugin 'udalov/kotlin-vim'
+" Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'preservim/nerdtree'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'https://tpope.io/vim/commentary.git'
 " Plugin 'https://github.com/kana/vim-textobj-user'
 " Plugin 'https://github.com/kana/vim-textobj-entire'
-Plugin 'https://github.com/tpope/vim-unimpaired'
 " Plugin 'https://github.com/tpope/vim-surround'
 " Plugin 'https://github.com/tpope/vim-obsession'
 " Plugin 'morhetz/gruvbox'
 " Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 " Plugin 'ervandew/supertab'
-" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'SirVer/ultisnips'
- 
-Plugin 'https://github.com/junegunn/fzf.vim'
-Plugin 'https://github.com/junegunn/fzf'
-Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'https://github.com/kana/vim-textobj-indent'
 " Plugin 'https://github.com/christoomey/vim-sort-motion'
 " Plugin 'https://github.com/kana/vim-textobj-line'
@@ -143,8 +143,6 @@ Plugin 'https://github.com/tpope/vim-fugitive'
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
-
-Plugin 'https://github.com/tomtom/tcomment_vim'
 
 call vundle#end()            " required
 

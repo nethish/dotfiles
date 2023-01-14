@@ -55,7 +55,7 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | 
 # Install tools
 sudo pacman -Syy -y
 sudo pacman -S yay -y
-yay -S tmux gvim xclip ripgrep fd lazygit diff-so-fancy brave-browser make cmake unzip
+yay -S tmux gvim xclip ripgrep fd lazygit diff-so-fancy brave-browser make cmake unzip postgresql
 # If you need google chrome then yay -S google-chrome will install it
 
 

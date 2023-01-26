@@ -1,8 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="eastwood"
@@ -51,7 +49,7 @@ ZSH_THEME="eastwood"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -72,7 +70,7 @@ export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-export PATH=/home/$USER/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 if [[ -f ~/.localrc ]]; then
   source ~/.localrc
@@ -80,15 +78,20 @@ fi
 
 # Aliases
 alias lg=lazygit
-alias cd=z
-alias _ez="vim ~/.zshrc"
-alias _eb="vim ~/.bashrc"
-alias _el="vim ~/.localrc"
-alias _sz="source ~/.zshrc"
-alias _sb="source ~/.bashrc"
-alias _sl="source ~/.localrc"
 
-alias -g fk=" | fzf"
+# Alias only when the z function exists
+if typeset -f z > /dev/null; then
+  alias cd=z
+fi
+
+alias editz="vim ~/.zshrc"
+alias editb="vim ~/.bashrc"
+alias editl="vim ~/.localrc"
+alias sourcez="source ~/.zshrc"
+alias sourceb="source ~/.bashrc"
+alias sourcel="source ~/.localrc"
+
+alias -g zz=" | fzf"
 
 # Auto suggestions
 bindkey '^ ' autosuggest-accept
@@ -96,15 +99,26 @@ bindkey '^ ' autosuggest-accept
 # Custom PS1
 PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%B$%b '
 
+function get_jobs_cnt() {
+  local JOBS_CNT=''
+  JOBS_CNT+="$(jobs -s | wc -l)"
+  echo "$JOBS_CNT"
+}
+
+function get_custom_exit_code() {
+  local LAST_EXIT=$?
+  local LOCAL_RPROMPT=''
+  LOCAL_RPROMPT+=%{$fg[red]%}-$LAST_EXIT-%{$reset_color%}
+  echo "$LOCAL_RPROMPT"
+}
+
+RPROMPT='$(get_custom_exit_code)'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
-
-
 
 
 

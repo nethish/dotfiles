@@ -53,9 +53,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 # Install tools
+sudo pacman-mirrors --geoip
 sudo pacman -Syy -y
 sudo pacman -S yay -y
-yay -S tmux gvim xclip ripgrep fd lazygit diff-so-fancy brave-browser make cmake unzip postgresql
+yay -S tmux gvim xclip ripgrep go fd lazygit diff-so-fancy brave-browser make cmake unzip postgresql
 # If you need google chrome then yay -S google-chrome will install it
 
 
@@ -91,7 +92,7 @@ cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig .ideavimrc ~/
 cd ~
 # Use apps to download and extract the application tar. Create a symlink in bin dir
 # Use data dir for storing some data. Like postgres data
-mdkir bin data apps
+mkdir bin data apps
 
 # Finally chsh
 sudo chsh

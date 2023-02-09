@@ -32,19 +32,20 @@ then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-# zsh plugins
-ZSH_CUSTOM="/home/$USER/.oh-my-zsh/custom"
-echo "zsh custom: $ZSH_CUSTOM"
-if [ -v ZSH_CUSTOM ]
-then
+if [[ ! -v ZSH_CUSTOM ]]; then
+  # zsh plugins
+  ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+  echo "zsh custom: $ZSH_CUSTOM"
   echo "Instaling zsh auto suggestions and syntax highlighting"
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 fi
 
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+if [ ! -x "$(command -v fzf)" ]; then
+  # fzf
+  echo "Installing FZF"
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
 
 # tmux - prefix + I to install plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -52,12 +53,27 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # zoxide, a better cd
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
-# Install tools
-sudo pacman-mirrors --geoip
-sudo pacman -Syy -y
-sudo pacman -S yay -y
-yay -S tmux gvim xclip ripgrep go fd lazygit diff-so-fancy brave-browser make cmake unzip postgresql
-# If you need google chrome then yay -S google-chrome will install it
+case "$OSTYPE" in
+  *darwin*)
+    echo "Detected darwin"
+    if [ ! -x "$(command -v brew)" ]; then
+      echo "Brew installation not detected"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    brew install $(cat brew_packages.txt)
+    ;;
+
+  *)
+    echo "No OSTYPE detected. Defaulting to arch"
+    # Install tools
+    sudo pacman-mirrors --geoip
+    sudo pacman -Syy -y
+    sudo pacman -S yay -y
+    yay -S tmux gvim xclip ripgrep go fd lazygit diff-so-fancy brave-browser make cmake unzip postgresql
+    # If you need google chrome then yay -S google-chrome will install it
+  ;;
+esac
+
 
 
 # Clone repos and plugins
@@ -82,17 +98,19 @@ fi
 # dotfiles
 # Backup old configs
 cd ~
-mkdir -p ~/.old-dotfiles
-cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig .ideavimrc ~/.old-dotfiles
+
+if [ ! -d ~/.old-dotfiles ]; then
+  mkdir -p ~/.old-dotfiles
+  cp .vimrc .tmux.conf .zshrc .bashrc .gitconfig .ideavimrc ~/.old-dotfiles
+fi
 
 cd ~/repos/dotfiles
 cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig .ideavimrc ~/ 
-
-
 cd ~
+
 # Use apps to download and extract the application tar. Create a symlink in bin dir
 # Use data dir for storing some data. Like postgres data
-mkdir bin data apps
+mkdir -p .local/bin .config data apps
 
 # Finally chsh
 sudo chsh

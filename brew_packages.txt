@@ -1,0 +1,11 @@
+golang
+python3
+brave-browser
+vim
+tmux
+postgresql
+lazygit
+java
+cmake
+nodejs
+intellij-idea-ce

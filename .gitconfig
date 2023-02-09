@@ -3,7 +3,7 @@
 	name = nethish
 [core]
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	# pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	co = checkout
 	p = push
@@ -44,5 +44,7 @@
 #
 # [diff]
 #     colorMoved = default
-[interactive]
-	diffFilter = diff-so-fancy --patch
+
+
+# [interactive]
+# 	diffFilter = diff-so-fancy --patch

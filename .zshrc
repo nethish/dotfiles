@@ -59,7 +59,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting colored-man-pages colorize fd fzf sudo zoxide zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting colored-man-pages colorize fd fzf sudo zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,7 +70,14 @@ export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-export PATH=$HOME/bin:$PATH
+
+case "$OSTYPE" in
+  *darwin*)
+    export PATH=/opt/homebrew/bin:$PATH
+  ;;
+esac
+
+export PATH=$HOME/.local/bin:$PATH
 
 if [[ -f ~/.localrc ]]; then
   source ~/.localrc
@@ -78,7 +85,7 @@ fi
 
 # Aliases
 alias lg=lazygit
-
+eval "$(zoxide init zsh)" 
 # Alias only when the z function exists
 if typeset -f z > /dev/null; then
   alias cd=z

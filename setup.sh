@@ -38,7 +38,7 @@ if [[ ! -v ZSH_CUSTOM ]]; then
   echo "zsh custom: $ZSH_CUSTOM"
   echo "Instaling zsh auto suggestions and syntax highlighting"
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-fi
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting fi
 
 if [ ! -x "$(command -v fzf)" ]; then
   # fzf
@@ -52,6 +52,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # zoxide, a better cd
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
+if [ ! -d ~/.sdkman ]; then
+  # Install sdkman
+  curl -s "https://get.sdkman.io" | bash
+  source $HOME/.sdkman/bin/sdkman-init.sh
+  sdk install java 17-open
+fi
 
 case "$OSTYPE" in
   *darwin*)

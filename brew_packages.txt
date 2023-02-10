@@ -5,7 +5,6 @@ vim
 tmux
 postgresql
 lazygit
-java
 cmake
 nodejs
 intellij-idea-ce

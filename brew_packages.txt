@@ -1,4 +1,5 @@
 golang
+xclip
 python3
 brave-browser
 vim

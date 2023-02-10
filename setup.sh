@@ -135,3 +135,9 @@ sudo chsh
 #     python3 install.py --all
 # 4. Check clipboard copy paste works with vim. 
 #     gvim must be install otherwise clipboard integration will not be there. echo has('clipboard')
+
+
+## For Mac
+# 1. Install UTM
+# 2. Install Notion
+#

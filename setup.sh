@@ -135,9 +135,10 @@ sudo chsh
 #     python3 install.py --all
 # 4. Check clipboard copy paste works with vim. 
 #     gvim must be install otherwise clipboard integration will not be there. echo has('clipboard')
+# 5. ssh-add --apple-use-keychain or ssh-add ~/.ssh/id_rsa to permanently add keys to ssh agent
+#     Start the agent with eval $(ssh-agent)
 
 
 ## For Mac
 # 1. Install UTM
-# 2. Install Notion
-#
+

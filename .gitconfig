@@ -23,10 +23,19 @@
 	lst = ls-tree
 	ds = diff --staged
 	unstage = restore --staged
+	lg = log --graph
+	llog = log --graph --abbrev-commit --decorate  --first-parent
+	glog = log --graph --abbrev-commit --decorate
 
 
 
 
+[merge]
+   tool = vimdiff
+[difftool "vimdiff"]
+    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "vimdiff"]
+    cmd = cp \"$BASE\" \"$MERGED\" && vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 
 # delta command
 # [core]

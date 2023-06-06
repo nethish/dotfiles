@@ -57,3 +57,6 @@
 
 # [interactive]
 # 	diffFilter = diff-so-fancy --patch
+
+[commit]
+	template = /Users/nethish/repos/dotfiles/gitcommittemplate.txt

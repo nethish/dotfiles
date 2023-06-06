@@ -119,6 +119,14 @@ cd ~
 # Use data dir for storing some data. Like postgres data
 mkdir -p .local/bin .config data apps
 
+
+# Git setup
+git config --global user.name nethish
+git config --global user.email nethish259@gmail.com
+git config --global commit.template ~/repos/dotfiles/gitcommittemplate.txt
+
+
+
 # Finally chsh
 sudo chsh
 

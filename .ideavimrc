@@ -72,8 +72,6 @@ map // /<C-R>/
 nnoremap <Leader>r *``cgn
 nnoremap <Leader>R :%s/<C-R><C-W>/
 
-imap
-
 " File
 nnoremap <Leader>bd :action CloseEditor<CR>
 nmap <Leader>new :action NewFile<CR>

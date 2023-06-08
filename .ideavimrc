@@ -13,6 +13,8 @@ let mapleader=" "
 nnoremap <Leader>ev :e ~/.ideavimrc<CR>
 map <Leader>sv :source ~/.ideavimrc<CR>
 
+nnoremap <Leader>ss :action ShowSettings
+
 nnoremap <Leader>ir :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <Leader>id :action ToggleDistractionFreeMode<CR>
 nnoremap <Leader>it :action ActivateTerminalToolWindow<CR>
@@ -21,7 +23,7 @@ nnoremap <Leader>il :action RecentLocations<CR>
 nnoremap <s-TAB> :action PreviousTab<CR>
 nnoremap <TAB> :action NextTab<CR>
 
-" Collapse
+" Collapse/ Expand
 nnoremap zc :action CollapseRegion<CR>
 nnoremap ze :action ExpandRegion<CR>
 nnoremap za :action CollapseAllRegions<CR>
@@ -40,8 +42,10 @@ nnoremap <Leader>fr :action RecentFiles<CR>
 nnoremap <Leader>fp :action FindInPath<CR>
 nnoremap <Leader>fs :action FileStructurePopup<CR>
 
+nnoremap <Leader>fn :action FileMenu<CR>
+
 nnoremap gs :action GotoSymbol<CR>
-nnoremap gd :action GotToDeclaration<CR>
+nnoremap gd :action GotoDeclaration<CR>
 nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
 nnoremap <Leader>sb :action ShowBookmarks<CR>
@@ -55,10 +59,12 @@ nmap ]d <Action>(GotoSuperMethod)
 " Code formatting
 nnoremap <Leader>ci :action OptimizeImports<CR>
 nnoremap <Leader>cq :action QuickActions<CR>
+nnoremap <Leader>cr :action ReformatCode
 
 " Debug
 nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>dv :action ViewBreakpoints<CR>
+nnoremap <Leader>dk :action EvaluateExpression<CR>
 
 " Search and replace
 nmap gr <Action>(RenameElement)
@@ -66,10 +72,15 @@ map // /<C-R>/
 nnoremap <Leader>r *``cgn
 nnoremap <Leader>R :%s/<C-R><C-W>/
 
+imap
 
 " File
 nnoremap <Leader>bd :action CloseEditor<CR>
 nmap <Leader>new :action NewFile<CR>
+
+" IntelliJ native find and replace
+inoremap <C-f> <Esc>:action Find<CR>
+inoremap <C-r> <Esc>:action Replace<CR>
 
 " Run config
 nmap <Leader>rr :action Run<CR>

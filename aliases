@@ -1,0 +1,10 @@
+#!/bin/bash
+
+alias lg=lazygit
+alias edz="vim ~/.zshrc"
+alias edb="vim ~/.bashrc"
+alias edl="vim ~/.localrc"
+alias sourz="source ~/.zshrc"
+alias sourb="source ~/.bashrc"
+alias sourl="source ~/.localrc"
+alias -g zz=" | fzf"

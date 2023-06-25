@@ -14,6 +14,7 @@ nnoremap <Leader>ev :e ~/.ideavimrc<CR>
 map <Leader>sv :source ~/.ideavimrc<CR>
 
 nnoremap <Leader>ss :action ShowSettings
+nnoremap <Leader><Leader> @:
 
 nnoremap <Leader>ir :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <Leader>id :action ToggleDistractionFreeMode<CR>
@@ -41,20 +42,28 @@ nnoremap <Leader>fb :action ShowNavBar<CR>
 nnoremap <Leader>fr :action RecentFiles<CR>
 nnoremap <Leader>fp :action FindInPath<CR>
 nnoremap <Leader>fs :action FileStructurePopup<CR>
-
 nnoremap <Leader>fn :action FileMenu<CR>
+nnoremap <Leader>fm :action MethodUp<CR>
+nnoremap <Leader>fd :action MethodDown<CR>
+
+" Editors
+nnoremap <Leader>ex :action CloseAllEditorsButActive<CR>
+nnoremap <Leader>eu :action CloseAllUnmodifiedEditors<CR>
 
 nnoremap gs :action GotoSymbol<CR>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+"nnoremap gc :action GotoClass<CR>
+
 nnoremap <Leader>sb :action ShowBookmarks<CR>
 
 " Git
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]c <Action>(VcsShowNextChangeMarker)
-nmap [d <Action>(GotoImplementation)
-nmap ]d <Action>(GotoSuperMethod)
 
 " Code formatting
 nnoremap <Leader>ci :action OptimizeImports<CR>
@@ -65,6 +74,12 @@ nnoremap <Leader>cr :action ReformatCode
 nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>dv :action ViewBreakpoints<CR>
 nnoremap <Leader>dk :action EvaluateExpression<CR>
+
+" Tools
+nnoremap <Leader>tt :action HideAllWindows<CR>
+nnoremap <Leader>te :action ActivateTerminalToolWindow<CR>
+nnoremap <Leader>ta :action HideActiveWindow<CR>
+nnoremap <Leader>ts :action HideSideWindows<CR>
 
 " Search and replace
 nmap gr <Action>(RenameElement)
@@ -83,7 +98,6 @@ inoremap <C-r> <Esc>:action Replace<CR>
 " Run config
 nmap <Leader>rr :action Run<CR>
 nmap <Leader>rc :action ChooseRunConfiguration<CR>
-nnoremap <Leader>wh : action HideActiveWindow<CR>
 
 " Plugins
 Plug 'preservim/nerdtree'
@@ -107,7 +121,8 @@ nmap <C-i> <Action>(Forward)
 " InCRemental searching (search as you type)
 set incsearch
 set smarttab
-set shiftround
+set shiftroun
+
 " Highlight search matches
 set hlsearch
 " Turn word wrap off
@@ -177,8 +192,12 @@ noremap J 10j
 noremap K 10k
 
 nnoremap <silent> <Leader>no :<c-u>set hlsearch!<bar>set hlsearch?<CR>
+
+" Splits
 nmap <Leader>j :split<CR>
 nnoremap <Leader>k :vsplit<CR>
+nnoremap <Leader>us :action Unsplit<CR>
+nnoremap <Leader>mv :action MoveEditorToOppositeTabGroup<CR>
 
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
@@ -237,3 +256,6 @@ nnoremap ;w :action GotoBookmarkW<CR>
 nnoremap ;x :action GotoBookmarkX<CR>
 nnoremap ;y :action GotoBookmarkY<CR>
 nnoremap ;z :action GotoBookmarkZ<CR>
+
+
+

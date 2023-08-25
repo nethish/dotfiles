@@ -13,8 +13,11 @@ let mapleader=" "
 nnoremap <Leader>ev :e ~/.ideavimrc<CR>
 map <Leader>sv :source ~/.ideavimrc<CR>
 
-nnoremap <Leader>ss :action ShowSettings
+nnoremap <C-G> :action Annotate<CR>
+
 nnoremap <Leader><Leader> @:
+
+nnoremap <Leader>ss :action ShowSettings<CR>
 
 nnoremap <Leader>ir :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <Leader>id :action ToggleDistractionFreeMode<CR>
@@ -24,11 +27,11 @@ nnoremap <Leader>il :action RecentLocations<CR>
 nnoremap <s-TAB> :action PreviousTab<CR>
 nnoremap <TAB> :action NextTab<CR>
 
-" Collapse/ Expand
+" Collapse/ Open
 nnoremap zc :action CollapseRegion<CR>
-nnoremap ze :action ExpandRegion<CR>
-nnoremap za :action CollapseAllRegions<CR>
-nnoremap zo :action ExpandAllRegions<CR>
+nnoremap zo :action ExpandRegion<CR>
+nnoremap zC :action CollapseAllRegions<CR>
+nnoremap zO :action ExpandAllRegions<CR>
 
 " Errors
 nnoremap gn :action GotoNextError<CR>
@@ -40,11 +43,13 @@ nnoremap <Leader>fu :action FindUsages<CR>
 nnoremap <Leader>fh :action CallHierarchy<CR>
 nnoremap <Leader>fb :action ShowNavBar<CR>
 nnoremap <Leader>fr :action RecentFiles<CR>
-nnoremap <Leader>fp :action FindInPath<CR>
+nnoremap <Leader>fg :action FindInPath<CR>
 nnoremap <Leader>fs :action FileStructurePopup<CR>
 nnoremap <Leader>fn :action FileMenu<CR>
-nnoremap <Leader>fm :action MethodUp<CR>
-nnoremap <Leader>fd :action MethodDown<CR>
+
+" Method
+nnoremap <Leader>mu :action MethodUp<CR>
+nnoremap <Leader>md :action MethodDown<CR>
 
 " Editors
 nnoremap <Leader>ex :action CloseAllEditorsButActive<CR>
@@ -52,20 +57,23 @@ nnoremap <Leader>eu :action CloseAllUnmodifiedEditors<CR>
 
 nnoremap gs :action GotoSymbol<CR>
 nnoremap gd :action GotoDeclaration<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
 nnoremap gi :action GotoImplementation<CR>
+nnoremap gs :action GotoSuperMethod<CR>
 nnoremap gt :action GotoTest<CR>
+"nnoremap gc :action GotoClass<CR>
 
 nnoremap <Leader>sb :action ShowBookmarks<CR>
 
 " Git
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]c <Action>(VcsShowNextChangeMarker)
-nnoremap gb :action Git.Branches<CR>
 
 " Code formatting
 nnoremap <Leader>ci :action OptimizeImports<CR>
 nnoremap <Leader>cq :action QuickActions<CR>
-nnoremap <Leader>cr :action ReformatCode
+nnoremap <Leader>cr :action ReformatCode<CR>
 
 " Debug
 nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
@@ -83,6 +91,8 @@ nmap gr <Action>(RenameElement)
 map // /<C-R>/
 nnoremap <Leader>r *``cgn
 nnoremap <Leader>R :%s/<C-R><C-W>/
+
+imap
 
 " File
 nnoremap <Leader>bd :action CloseEditor<CR>
@@ -253,6 +263,5 @@ nnoremap ;w :action GotoBookmarkW<CR>
 nnoremap ;x :action GotoBookmarkX<CR>
 nnoremap ;y :action GotoBookmarkY<CR>
 nnoremap ;z :action GotoBookmarkZ<CR>
-
 
 

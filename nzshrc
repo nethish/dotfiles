@@ -78,6 +78,7 @@ case "$OSTYPE" in
   ;;
 esac
 
+# TODO Add a if around this to make the it idempotent whenever reload happens
 export PATH=$HOME/.local/bin:$PATH
 
 if [[ -f ~/.localrc ]]; then
@@ -113,4 +114,5 @@ function get_custom_exit_code() {
 # RPROMPT='$(get_custom_exit_code)'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+[ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
+[ -f $HOME/repos/dotfiles/functions.sh ] && source $HOME/repos/dotfiles/functions.sh

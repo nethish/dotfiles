@@ -96,27 +96,21 @@ if typeset -f z > /dev/null; then
   alias cd=z
 fi
 
-# Auto suggestions
+# Bind keys
 bindkey '^ ' autosuggest-accept
+bindkey '^i' edit-command-line 
+bindkey '^q' push-line
+bindkey '^u' undo # CTRL-w to kill-region
 
 # Custom PS1
 PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%B$%b '
 
-function get_jobs_cnt() {
-  local JOBS_CNT=''
-  JOBS_CNT+="$(jobs -s | wc -l)"
-  echo "$JOBS_CNT"
-}
-
-function get_custom_exit_code() {
-  local LAST_EXIT=$?
-  local LOCAL_RPROMPT=''
-  LOCAL_RPROMPT+=%{$fg[red]%}-$LAST_EXIT-%{$reset_color%}
-  echo "$LOCAL_RPROMPT"
-}
-
-# RPROMPT='$(get_custom_exit_code)'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
 [ -f $HOME/repos/dotfiles/functions.sh ] && source $HOME/repos/dotfiles/functions.sh
+
+set -o vi
+
+# The function is present in functions.sh
+# RPROMPT='$(get_custom_exit_code)'

@@ -1,3 +1,4 @@
+#!/bin/zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -84,21 +85,11 @@ if [[ -f ~/.localrc ]]; then
 fi
 
 # Aliases
-alias lg=lazygit
 eval "$(zoxide init zsh)" 
 # Alias only when the z function exists
 if typeset -f z > /dev/null; then
   alias cd=z
 fi
-
-alias editz="vim ~/.zshrc"
-alias editb="vim ~/.bashrc"
-alias editl="vim ~/.localrc"
-alias sourcez="source ~/.zshrc"
-alias sourceb="source ~/.bashrc"
-alias sourcel="source ~/.localrc"
-
-alias -g zz=" | fzf"
 
 # Auto suggestions
 bindkey '^ ' autosuggest-accept
@@ -119,15 +110,7 @@ function get_custom_exit_code() {
   echo "$LOCAL_RPROMPT"
 }
 
-RPROMPT='$(get_custom_exit_code)'
+# RPROMPT='$(get_custom_exit_code)'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
-
-
 

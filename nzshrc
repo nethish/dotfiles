@@ -85,6 +85,10 @@ if [[ -f ~/.localrc ]]; then
   source ~/.localrc
 fi
 
+if [[ -f ~/.aliases ]]; then
+  source ~/.aliases
+fi
+
 # Aliases
 eval "$(zoxide init zsh)" 
 # Alias only when the z function exists

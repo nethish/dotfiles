@@ -101,6 +101,10 @@ bindkey '^ ' autosuggest-accept
 bindkey '^i' edit-command-line 
 bindkey '^q' push-line
 bindkey '^u' undo # CTRL-w to kill-region
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^W' backward-kill-word
+
 
 # Custom PS1
 PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%B$%b '
@@ -110,7 +114,7 @@ PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%
 [ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
 [ -f $HOME/repos/dotfiles/functions.sh ] && source $HOME/repos/dotfiles/functions.sh
 
-set -o vi
+# set -o vi
 
 # The function is present in functions.sh
 # RPROMPT='$(get_custom_exit_code)'

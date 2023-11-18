@@ -1,13 +1,15 @@
 [user]
 	email = nethish259@gmail.com
 	name = nethish
+
 [core]
 	editor = vim
 	# pager = diff-so-fancy | less --tabs=4 -RFX
+
 [alias]
 	co = checkout
 	p = push
-	st = status -sb
+	st = status
 	ll = log --oneline
 	last = log -1 HEAD --stat
 	cm = commit -m
@@ -28,14 +30,23 @@
 	glog = log --graph --abbrev-commit --decorate
 
 
-
-
 [merge]
    tool = vimdiff
+
 [difftool "vimdiff"]
     cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+
 [mergetool "vimdiff"]
     cmd = cp \"$BASE\" \"$MERGED\" && vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+
+[commit]
+	template = ~/repos/dotfiles/gitcommittemplate.txt
+    
+[push]
+	default = current
+	autoSetupRemote = true
+
+
 
 # delta command
 # [core]
@@ -58,5 +69,3 @@
 # [interactive]
 # 	diffFilter = diff-so-fancy --patch
 
-[commit]
-	template = /Users/nethish/repos/dotfiles/gitcommittemplate.txt

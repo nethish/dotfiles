@@ -6,9 +6,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="eastwood"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -18,17 +15,8 @@ ZSH_THEME="eastwood"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -78,16 +66,12 @@ case "$OSTYPE" in
   ;;
 esac
 
-# TODO Add a if around this to make the it idempotent whenever reload happens
-export PATH=$HOME/.local/bin:$PATH
-
-if [[ -f ~/.localrc ]]; then
-  source ~/.localrc
+if [[ -d "$HOME/.local/bin" ]]; then
+    export PATH=$HOME/.local/bin:$PATH
 fi
 
-if [[ -f ~/.aliases ]]; then
-  source ~/.aliases
-fi
+[ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
+[ -f $HOME/repos/dotfiles/functions.sh ] && source $HOME/repos/dotfiles/functions.sh
 
 # Aliases
 eval "$(zoxide init zsh)" 
@@ -104,15 +88,25 @@ bindkey '^u' undo # CTRL-w to kill-region
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^W' backward-kill-word
-
+bindkey '^b' backward-word
+bindkey '^f' forward-word
+bindkey '^h' backward-char
+bindkey '^l' forward-char
 
 # Custom PS1
 PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%B$%b '
 
 
+if [[ -f ~/.localrc ]]; then
+  source ~/.localrc
+fi
+
+if [[ -f ~/.aliases ]]; then
+  source ~/.aliases
+fi
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
-[ -f $HOME/repos/dotfiles/functions.sh ] && source $HOME/repos/dotfiles/functions.sh
 
 # set -o vi
 

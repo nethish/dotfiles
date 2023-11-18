@@ -112,7 +112,8 @@ if [ ! -d ~/.old-dotfiles ]; then
 fi
 
 cd ~/repos/dotfiles
-cp .zshrc .vimrc .bashrc .tmux.conf .gitconfig .ideavimrc ~/ 
+cp .zshrc .vimrc .bashrc .tmux.conf .ideavimrc ~/ 
+cp gitconfig ~/.gitconfig
 cd ~
 
 # Use apps to download and extract the application tar. Create a symlink in bin dir

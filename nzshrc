@@ -70,8 +70,8 @@ if [[ -d "$HOME/.local/bin" ]]; then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
-[ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
 [ -f $HOME/repos/dotfiles/functions.sh ] && source $HOME/repos/dotfiles/functions.sh
+[ -f $HOME/repos/dotfiles/aliases.sh ] && source $HOME/repos/dotfiles/aliases.sh
 
 # Aliases
 eval "$(zoxide init zsh)" 
@@ -80,7 +80,7 @@ if typeset -f z > /dev/null; then
   alias cd=z
 fi
 
-# Bind keys
+# Bind keys emacs mode - default
 bindkey '^ ' autosuggest-accept
 bindkey '^i' edit-command-line 
 bindkey '^q' push-line
@@ -92,6 +92,9 @@ bindkey '^b' backward-word
 bindkey '^f' forward-word
 bindkey '^h' backward-char
 bindkey '^l' forward-char
+
+# vi mode shortcuts
+bindkey -M viins '^ ' autosuggest-accept
 
 # Custom PS1
 PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%B$%b '

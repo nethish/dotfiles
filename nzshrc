@@ -96,6 +96,7 @@ bindkey '^l' forward-char
 # vi mode shortcuts
 bindkey -M viins '^ ' autosuggest-accept
 bindkey -M viins '^R' fzf-history-widget
+bindkey -M viins '^q' push-line
 
 # Custom PS1
 PS1='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}[$(date +%H:%M:%S)]%B$%b '

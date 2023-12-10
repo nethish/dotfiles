@@ -36,4 +36,16 @@ alias gb="git branch"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gr="git remote"
-alias gp="git push"
+alias gp="git pull --rebase"
+alias gpush="git push origin HEAD"
+
+alias rmswp="rm -rf ~/.local/state/nvim/swap/*"
+
+# TMUX
+alias t="tmux"
+alias tnew="tmux new-session"
+alias tat="tmux attach-session -t"
+
+
+# Python 
+alias penv="source ./venv/bin/activate"

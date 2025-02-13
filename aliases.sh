@@ -49,3 +49,7 @@ alias tat="tmux attach-session -t"
 
 # Python 
 alias penv="source ./venv/bin/activate"
+
+# Dir
+alias cdw="cd ~/workspace/"
+alias cdr="cd ~/repos/"

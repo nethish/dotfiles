@@ -16,7 +16,6 @@ alias p="python3"
 alias ds="du -sh"
 alias rm='rm -i'
 
-
 alias tmp="mkcd ~/repos/tmp"
 
 # GIT
@@ -25,19 +24,19 @@ alias ga="git add"
 alias gm="git commit -m"
 alias gd="git diff"
 alias gs="git status"
-alias gr="git restore"
 alias grs="git restore --staged"
 alias grev="git revert"
 alias gstl="git stash list"
 alias gsta="git stash apply"
 alias gstp="git stash pop"
-alias gsts="git stash"
+alias gsts="git stash -m"
 alias gb="git branch"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gr="git remote"
-alias gp="git pull --rebase"
+alias gpull="git pull --rebase"
 alias gpush="git push origin HEAD"
+alias gf="git fetch upstream && git rebase upstream/master"
 
 alias rmswp="rm -rf ~/.local/state/nvim/swap/*"
 
@@ -46,8 +45,7 @@ alias t="tmux"
 alias tnew="tmux new-session"
 alias tat="tmux attach-session -t"
 
-
-# Python 
+# Python
 alias penv="source ./venv/bin/activate"
 
 # Dir

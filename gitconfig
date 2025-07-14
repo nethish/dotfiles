@@ -1,3 +1,13 @@
+[includeIf "gitdir:~/workspace/"]
+  path = ~/.gitconfig-organization
+
+[includeIf "gitdir:~/repos/"]
+  path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/.config/nvim/"]
+  path = ~/.gitconfig-personal
+
+
 [user]
 	email = nethish259@gmail.com
 	name = nethish
